@@ -122,7 +122,7 @@ async def enter(message: types.Message, state: context.FSMContext):
                         command = f"INSERT INTO {data['User'].lower()}_table (login, password, email, phone_number, info) VALUES ('{data['LogIn']}', '{message.text}', '{data['EMail']}', {data['Phone_Number']}, 'Not_verified')"
                         print(command)
                         edit_database(command)
-                        if data["User"] == "Admin":
+                        if data["User"] == "admin":
                             add_text = "\nBut, that doesn't means that you arleady have all functional which administrators have.\nYou need to wait for your verify by administrators to have all functional.\nWe will message you when this will happen.\nSee you later!"
                         else:
                             add_text = None

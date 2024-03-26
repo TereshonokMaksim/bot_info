@@ -8,13 +8,14 @@ class BasicStates(state.StatesGroup):
     authorization = state.State()
     awaiting = state.State()
     application = state.State()
+    profile = state.State()
 
-# class SendStates(state.StatesGroup):
-#     theme = state.State()
-#     content = state.State()
-#     end = state.State()
-#     creating_inline_keyboard = state.State()
-#     confirming = state.State()
+class SendStates(state.StatesGroup):
+    time = state.State()
+    image = state.State()
+    description = state.State()
+    product = state.State()
+    edit = state.State()
 
 # class VerificationStates(state.StatesGroup):
 #     verif_page = state.State()

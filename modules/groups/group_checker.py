@@ -1,4 +1,3 @@
-import aiogram
 import modules.all_states as all_states
 import aiogram.filters as filters
 import aiogram.types as types
@@ -10,7 +9,7 @@ async def check(message: types.Message):
         print(message.new_chat_members[0].username)
         # if message.new_chat_members[0].username == "InformatorTeam2Bot":
         print(2)
-        print(edit_database(command = "SELECT group_id FROM data"))
+        # print(edit_database(command = "SELECT group_id FROM data"))
         try:
             data = edit_database(command = "SELECT group_id FROM data")[-1][-1].split(",")
         except:
@@ -23,6 +22,7 @@ async def check(message: types.Message):
                 data = edit_database(command = "SELECT group_id FROM data")[-1][-1].split(",")
             except:
                 data = ""
+            print(data, message.chat.id)
             if str(message.chat.id) in data:
-                data.remove(message.chat.id)
+                data.remove(str(message.chat.id))
                 edit_database(command = f"UPDATE data SET group_id = '{','.join(data)}'")
